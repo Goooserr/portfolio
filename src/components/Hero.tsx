@@ -2,11 +2,23 @@
 
 import Image from 'next/image';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { SiJavascript, SiPython, SiReact } from 'react-icons/si';
 import styles from './Hero.module.css';
 
 export default function Hero() {
   return (
     <section className={styles.hero}>
+      {/* Floating Tech Icons */}
+      <div className={`${styles.floatingIcon} ${styles.icon1}`}>
+        <SiJavascript size={40} color="#F7DF1E" />
+      </div>
+      <div className={`${styles.floatingIcon} ${styles.icon2}`}>
+        <SiPython size={40} color="#3776AB" />
+      </div>
+      <div className={`${styles.floatingIcon} ${styles.icon3}`}>
+        <SiReact size={40} color="#61DAFB" />
+      </div>
+
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.statusBadge}>
@@ -45,7 +57,7 @@ export default function Hero() {
         
         <div className={styles.imageWrapper}>
           <Image 
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" 
+            src="/profile.png" 
             alt="Portrait" 
             width={400} 
             height={500} 

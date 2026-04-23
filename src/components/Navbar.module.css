@@ -30,28 +30,50 @@
 }
 
 .link {
+  position: relative;
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--text-secondary);
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease, left 0.3s ease;
+  border-radius: 2px;
 }
 
 .link:hover {
   color: var(--text-primary);
 }
 
+.link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
 .contactBtn {
-  padding: 0.6rem 1.2rem;
+  padding: 0.7rem 1.5rem;
   font-size: 0.95rem;
   font-weight: 600;
   color: white;
   background: var(--accent-color);
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px rgba(0, 85, 255, 0.2);
 }
 
 .contactBtn:hover {
   background: #0044cc;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 85, 255, 0.4);
 }
 
 @media (max-width: 768px) {

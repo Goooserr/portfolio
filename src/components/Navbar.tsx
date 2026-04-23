@@ -11,6 +11,7 @@ export default function Navbar() {
       <nav className={styles.nav}>
         <a href="#skills" className={styles.link}>Compétences</a>
         <a href="#projects" className={styles.link}>Projets</a>
+        <a href="#pricing" className={styles.link}>Tarifs</a>
         <a href="#contact" className={styles.contactBtn}>Me contacter</a>
       </nav>
     </header>
