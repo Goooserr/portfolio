@@ -57,7 +57,7 @@ export default function Hero() {
         
         <div className={styles.imageWrapper}>
           <Image 
-            src="/profile.png" 
+            src="/hero-portrait.png" 
             alt="Portrait" 
             width={400} 
             height={500} 

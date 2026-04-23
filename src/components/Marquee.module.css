@@ -26,26 +26,20 @@
   display: flex;
   width: max-content;
   animation: scroll 40s linear infinite;
+  align-items: center;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  padding: 1.5rem 3rem;
-  margin: 0 1rem;
-  border-radius: 12px;
+  padding: 1.5rem 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  min-width: 180px;
+  min-width: 250px;
 }
 
 .card:hover {
-  border-color: var(--accent-blue);
-  background: rgba(255, 255, 255, 0.05);
-  transform: translateY(-5px);
+  transform: scale(1.1);
 }
 
 .companyName {
@@ -56,6 +50,24 @@
   background: linear-gradient(to right, #fff, #888);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+
+.logo {
+  object-fit: contain;
+  opacity: 1; /* Maximum visibility */
+  transition: all 0.4s ease;
+  filter: none; /* No filter for now to debug visibility */
+}
+
+.card:hover .logo {
+  transform: scale(1.1);
 }
 
 @keyframes scroll {
