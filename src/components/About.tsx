@@ -1,11 +1,18 @@
+import Image from 'next/image';
 import styles from './About.module.css';
 
 export default function About() {
   return (
     <section id="about" className={styles.about}>
       <div className={styles.imageContainer}>
-        <div className={styles.imagePlaceholder}>
-          [Photo de Florian]
+        <div className={styles.imageWrapper}>
+          <Image 
+            src="/profile.png" 
+            alt="Florian" 
+            width={400} 
+            height={500} 
+            className={styles.profileImage}
+          />
         </div>
       </div>
       <div className={styles.content}>
