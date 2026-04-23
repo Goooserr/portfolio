@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
+import Marquee from "@/components/Marquee";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Pricing from "@/components/Pricing";
@@ -12,7 +12,7 @@ export default function Home() {
       <Navbar />
 
       <Hero />
-      <About />
+      <Marquee />
       <Skills />
       <Projects />
       <Pricing />
