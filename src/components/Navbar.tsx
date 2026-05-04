@@ -1,10 +1,19 @@
 "use client";
 
+import { useEffect, useState } from 'react';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.logo}>
         Flo<span>.Dev</span>
       </div>

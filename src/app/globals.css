@@ -3,14 +3,19 @@
   --bg-secondary: #0f0f11;
   --text-primary: #ffffff;
   --text-secondary: #a1a1aa;
-  --accent-color: #0055FF; /* Electric Blue */
+  --accent-color: #0055FF;
   --accent-glow: rgba(0, 85, 255, 0.15);
   --gradient-primary: linear-gradient(135deg, #0055FF, #00a2ff);
-  
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
 }
 
-* {
+/* ── Reset ──────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -25,6 +30,8 @@ body {
   font-family: var(--font-sans);
   line-height: 1.6;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -32,24 +39,67 @@ a {
   text-decoration: none;
 }
 
-/* Animations Globales */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ── Selection ──────────────────────────────────────── */
+
+::selection {
+  background: rgba(0, 85, 255, 0.3);
+  color: var(--text-primary);
 }
 
-.animate-fade-in {
-  animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+/* ── Scrollbar ──────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
-  50% { box-shadow: 0 0 40px var(--accent-glow); }
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
 }
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ── GPU hint for animated elements ────────────────── */
+
+.will-animate {
+  will-change: transform, opacity;
+}
+
+/* ── Gradient text utility ──────────────────────────── */
 
 .gradient-text {
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ── Section dividers ───────────────────────────────── */
+
+section + section {
+  position: relative;
+}
+
+section + section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  max-width: 600px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.06) 30%,
+    rgba(255, 255, 255, 0.06) 70%,
+    transparent
+  );
 }
